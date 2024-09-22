@@ -1,1 +1,26 @@
-﻿Informacion i Pergjithshem mbi projektin
+﻿Informacion i Pergjithshem mbi aplikacionin
+
+1. Nese duhet qe te shtohen projekte te tipit Class Library, duhet te zgjedhim ate projekt
+qe ka si specifikim .NET dhe .NET Standard(jo tipin per .net framework). .NET Standard 
+suporton disa platforma zhvillimi (nder te cilat .net framework), ndersa .net framework sherben 
+vetem asp.net dhe llojet e tjera qe jane vetem pjese e .net framework(si WPF etj).
+
+
+2. Aplikacioni do te ndjeki nje arkitekture, e cila bashkon koncepte nga arkitekturat
+kryesore per krijimin e aplikacioneve si Onion, Hexagonal, etj, qe quhet
+Clean Architecture (https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html).
+
+Projekti Core do te sherbej per te percaktuar objektet e aplikacionit, thene kjo, klasat bashke
+me properties dhe bussiness rules(per tu pare) te tyre perkatese.
+
+Projekti Application eshte nje shtrese me siper projektit Core dhe referencon kete projekt. Ky 
+projekt do te percaktoj use cases ose veprimet mbi keto objekte per tu referuar nga shtresat
+me siper.
+
+Projekti Infrastructure eshte se bashku me projektin API ne te njejten shtrese, me siper
+projektit te Application dhe referon ne dy projektet me poshte. Ne kete projekt do te jete
+e gjithe infrastruktura per lidhjen me db dhe do te implementohen metodat e deklaruara ne
+projektin e Application.
+
+Rregulli kryesor qe duhet zbatuar eshte qe nje kode ne nje shtrese duhet te referoj vetem
+ne shtresen poshte tij dhe nuk duhet te dije gje per shtresat siper tij. (The Dependency Rule)

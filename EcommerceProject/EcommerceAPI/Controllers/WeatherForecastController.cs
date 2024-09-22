@@ -28,6 +28,10 @@ namespace EcommerceAPI.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+
+            //ne controller do te eliminojme cdo thirrje nga projekti i infrastruktures
+            //per te siguruar parimin e Dependency Rule dhe do ti referohemi vetem
+            //metodave ne projektin e Application, npm interfacet te deklaruar
         }
     }
 }
